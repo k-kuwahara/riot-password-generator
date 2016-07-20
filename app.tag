@@ -40,13 +40,8 @@
       // add upper case
       seed += strings + strings.toUpperCase()
 
-      if (numbers_flg) {
-        seed += numbers
-      }
-      
-      if (symbols_flg) {
-        seed += symbols
-      }
+      if (numbers_flg) seed += numbers
+      if (symbols_flg) seed += symbols
       
       for (var i = 0; i < this.pass_len; i++) {
         this.result += seed[Math.floor(Math.random() * seed.length)];
