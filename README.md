@@ -1,6 +1,7 @@
 # riot-password-generator
 
-This app is made by [Riot.js](http://riotjs.com/).
+This app is made by [Riot.js](http://riotjs.com/).  
+Demo: [https://embed.plnkr.co/4RU6dM/](https://embed.plnkr.co/4RU6dM/)
 
 License is [MIT](https://github.com/k-kuwahara/riot-password-generator/blob/master/LICENSE.md).
 
