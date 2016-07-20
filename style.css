@@ -1,0 +1,46 @@
+/* Styles go here */
+
+body {
+  background: #e0e0e0;
+  text-align: center;
+}
+
+.container {
+  width: 350px;
+  margin: 30px auto;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 28px;
+  text-align: center;
+}
+
+#btn {
+  color: #fff;
+  padding: 10px;
+  background: #1FADC5;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 2px 2px #aaa;
+}
+
+#btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#title {
+  margin: 40px 0 10px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#options {
+  text-align: center;
+  border: 1px dashed #aaa;
+  border-radius: 5px;
+}
