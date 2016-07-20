@@ -6,7 +6,7 @@
     <div id="title">Options</div>
     <div id="options">
       <p>
-        Length（{ pass_len }）: <input type="range" id="slider" value="8" min="6" max="18" onchange="{ change_len}">
+        Length（{ pass_len }）: <input type="range" id="slider" value="8" min="6" max="18" onchange="{ change_len }">
       </p>
       <p>
         Numbers?: <input type="checkbox" id="numbers" onclick="{ check_numbers }">
