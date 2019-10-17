@@ -22,28 +22,25 @@
     this.pass_len = 8
 
     // conditions
-    var strings = 'abcdefghijklmnopqrstuvwxyz'
-    var numbers = '0123456789'
-    var symbols = '!"#$%&-^¥@;:/<>+*{}[]|~='
+    const strings = 'abcdefghijklmnopqrstuvwxyz'
+    const numbers = '0123456789'
+    const symbols = '!"#$%&-^¥@;:/<>+*{}[]|~='
 
     // flgs
-    var numbers_flg
-    var symbols_flg
+    const numbers_flg
+    const symbols_flg
     
 
     // generate password
     generate() {
       // initialization
       this.result = ''
-      var seed = ''
-      
-      // add upper case
-      seed += strings + strings.toUpperCase()
+      let seed = strings + strings.toUpperCase()
 
       if (numbers_flg) seed += numbers
       if (symbols_flg) seed += symbols
       
-      for (var i = 0; i < this.pass_len; i++) {
+      for (let i = 0; i < this.pass_len; i++) {
         this.result += seed[Math.floor(Math.random() * seed.length)];
       }
 
