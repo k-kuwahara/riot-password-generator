@@ -6,16 +6,24 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     
     <title>Password Generator</title>
-    <meta name="description" content="${description}" />
+    <meta name="description" content="password generator made with riot4" />
     
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
     <app></app>
-    <script src="app.tag" type="riot/tag"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/riot/3.13.2/riot+compiler.min.js"></script>
+    <script data-src="app.riot" type="riot"></script>
+    <script src="https://unpkg.com/riot@4.6.5/riot+compiler.min.js"></script>
 
-    <script>riot.mount('app')</script>
+    <script>
+      riot.compile()
+        .then(() => {
+          riot.mount('app')
+        })
+        .catch(e => {
+          console.error(e)
+        })
+    </script>
   </body>
 </html>

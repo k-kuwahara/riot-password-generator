@@ -1,6 +1,6 @@
 # riot-password-generator
 
-This app is made by [Riot.js](https://v3.riotjs.now.sh/) (ver 3.13.2).
+This app is made by [Riot.js](https://riot.js.org/) (ver 4.6.5).
 
 Check your local environment by using http server. (e.g. [http-server](https://www.npmjs.com/package/http-server))
 

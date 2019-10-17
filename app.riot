@@ -1,0 +1,97 @@
+<app>
+  <div class="container">
+    <p><input type="text" onclick="{ select }" value="{ state.result }"></p>
+    <p><div id="btn" onclick="{ generate }">Generate Password</div></p>
+
+    <div id="title">Options</div>
+    <div id="options">
+      <p>
+        Length（{ state.pass_len }）: <input type="range" id="slider" value="8" min="6" max="18" onchange="{ change_len }">
+      </p>
+      <p>
+        Numbers?: <input type="checkbox" id="numbers" onclick="{ check_numbers }">
+        Symbols?: <input type="checkbox" id="symbols" onclick="{ check_symbols }">
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // conditions
+    const STRINGS = 'abcdefghijklmnopqrstuvwxyz'
+    const NUMBERS = '0123456789'
+    const SYMBOLS = '!"#$%&-^¥@;:/<>+*{}[]|~='
+
+    // flags
+    this.numbers_flg = false
+    this.symbols_flg = false
+
+    export default {
+      onBeforeMount() {
+        this.state = {
+          result: '',
+          pass_len: 8
+        }
+      },
+      // generate password
+      generate() {
+        // initialization
+        this.state.result = ''
+        let seed = STRINGS + STRINGS.toUpperCase()
+        const stateObj = this.state
+
+        if (numbers_flg) {
+          seed += NUMBERS
+        }
+
+        if (symbols_flg) {
+          seed += SYMBOLS
+        }
+
+        for (let i = 0; i < stateObj.pass_len; i++) {
+          stateObj.result += seed[Math.floor(Math.random() * seed.length)]
+        }
+
+        if (!this.is_correct_format(stateObj.result)) {
+          this.generate()
+        }
+        this.update()
+      },
+    
+      // numbers check
+      check_numbers(e) {
+        numbers_flg = e.target.checked
+      },
+    
+      // symbols check
+      check_symbols(e) {
+        symbols_flg = e.target.checked
+      },
+
+      // format check
+      is_correct_format(pass) {
+        if (numbers_flg && symbols_flg) {
+          return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!"#$%&\-^¥\\@;:\/<>\+\*{}\[\]\|~=]).*$/)
+        }
+        else if (numbers_flg) {
+          return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+).*$/)
+        }
+        else if (symbols_flg) {
+          return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[!"#$%&\-^¥\\@;:\/<>\+\*{}\[\]\|~=]).*$/)
+        }
+        else {
+          return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+).*$/)
+        }
+      },
+    
+      // password
+      select(e) {
+        e.target.select();
+      },
+
+      // change password length
+      change_len(e) {
+        this.state.pass_len = e.target.value
+      }
+    }
+  </script>
+</app>
