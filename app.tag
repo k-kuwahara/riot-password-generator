@@ -32,7 +32,7 @@
     
 
     // generate password
-    generate(e) {
+    generate() {
       // initialization
       this.result = ''
       var seed = ''
@@ -46,6 +46,10 @@
       for (var i = 0; i < this.pass_len; i++) {
         this.result += seed[Math.floor(Math.random() * seed.length)];
       }
+
+      if (!this.is_correct_format(this.result)) {
+        this.generate()
+      }
     }
     
     // numbers check
@@ -56,6 +60,22 @@
     // symbols check
     check_symbols(e) {
       symbols_flg = e.target.checked
+    }
+
+    // format check
+    is_correct_format(pass) {
+      if (numbers_flg && symbols_flg) {
+        return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!"#$%&\-^¥\\@;:\/<>\+\*{}\[\]\|~=]).*$/)
+      }
+      else if (numbers_flg) {
+        return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+).*$/)
+      }
+      else if (symbols_flg) {
+        return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[!"#$%&\-^¥\\@;:\/<>\+\*{}\[\]\|~=]).*$/)
+      }
+      else {
+        return pass.match(/^(?=.*[a-z]+)(?=.*[A-Z]+).*$/)
+      }
     }
     
     // select password
